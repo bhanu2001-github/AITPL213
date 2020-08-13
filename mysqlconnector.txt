@@ -1,0 +1,27 @@
+import mysql.connector
+#from mysql.connector import*
+con=mysql.connector.connect(host='18.219.99.141',database='db2',user="bhavana",password="coding")
+b=con.cursor()
+def create_table():
+    b.execute("create table employee(emp_id varchar(10),emp_nm varchar(10),salary number(10))")
+def insert_table():
+    b.execute("insert into employee values('ABC1','bhavana',1000)")
+    b.execute("insert into employee values('ABC2','suraj',2000)")
+    b.execute("insert into employee values('ABC3','nayana',3000)")
+    b.execute("insert into employee values('ABC4','reethu',4000)")
+    b.execute("insert into employee values('ABC5','ramya',5000)")
+def select_table():
+    b.execute('select emp_name from employee')
+    data=b.fetchall()
+    for column in data:
+     print(coloumn)
+def update_table():
+    b.execute('update employee set emp_nm='sahana',salary=100  where emp_id=1')
+def delete_table():
+    b.execute('delete from employee where emp_id='ABC1')
+create_table()
+insert_table()
+update_table()
+delete_table()
+b.close()
+con.close()
